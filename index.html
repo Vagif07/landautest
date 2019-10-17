@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="public/img/logo.png">
+	<link rel="stylesheet" href="public/css/style.css">
+	<title>Azərbaycan Dəmir Yolları</title>
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<div class="container header-content">
+			<div class="logo">
+				<img src="public/img/logo.png" alt="Logo Image">
+			</div>
+			<div class="nav">
+				<ul class="nav-links">
+					<li class="nav-link">
+						<a href="#">
+							Home
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="#">
+							Terms & Conditions
+						</a>
+					</li>
+					<li class="nav-link">
+						<a href="#">
+							Contacts
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="blocks" id="app">	
+		<div class="blocks-container container">
+			<div class="block-line large">
+				<div class="block">
+					<div class="content-container">
+						<h2>
+							Login
+						</h2>
+						<input type="text" placeholder="Name" name="name">
+						<input type="password" placeholder="Password" name="password">
+						<button type="submit">Login</button>
+					</div>
+				</div>
+				<div class="block">
+					<div class="content-container">
+						<h2>
+							Add a Route
+						</h2>
+						<input type="text" placeholder="Start Time" v-model="departure">
+						<input type="text" placeholder="Duration (min)" v-model="duration">
+						<input type="text" placeholder="Train Name" v-model="name">
+						<input type="text" placeholder="Price" v-model="price">
+						<button onclick="addNewRoute()" type="submit">Submit</button>
+					</div>
+				</div>
+				<div class="block large">
+					<div class="content-container">
+						<table>
+							<thead>
+								<th>Departure Time</th>
+								<th>Arrival Time</th>
+								<th>Train Name</th>
+								<th>Price</th>
+							</thead>
+							<tbody>
+								<tr v-for="i in 3">
+									<td>
+										9:00
+									</td>
+									<td>
+										12:00
+									</td>
+									<td>
+										Baku - Gandja
+									</td>
+									<td>
+										₼ 50 (<a href="#">buy</a>)
+									</td>
+								</tr>
+								<tr v-for="item in trains">
+									<td>
+										{{item.departure}}
+									</td>
+									<td>
+										{{item.arrival}}
+									</td>
+									<td>
+										{{item.name}}
+									</td>
+									<td>
+										₼ {{item.price}} (<a href="#">buy</a>)
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="block-line">
+				<div class="block">
+					<div class="content-container">
+						<p>
+							A small block
+						</p>
+					</div>
+				</div>
+				<div class="block large">
+					<div class="content-container">
+						<p>
+							A large block
+						</p>
+					</div>
+				</div>
+				<div class="block">
+					<div class="content-container">
+						<p>
+							A small block
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		© 2019
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vuex"></script>
+	<script src="public/js/app.js"></script>
+</body>
+</html>
